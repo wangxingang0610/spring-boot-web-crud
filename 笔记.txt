@@ -1,0 +1,67 @@
+
+
+1.引入thymeleaf
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
+        <properties>
+                <java.version>1.8</java.version>
+                <thymeleaf.version>3.0.9.RELEASE</thymeleaf.version>
+                <!-- 布局功能的支持程序  thymeleaf3主程序  layout2以上版本 -->
+                <!-- thymeleaf2   layout1-->
+                <thymeleaf-layout-dialect.version>2.2.2</thymeleaf-layout-dialect.version>
+        </properties>
+
+2.Thymeleaf使用
+
+        @ConfigurationProperties(prefix = "spring.thymeleaf")
+        public class ThymeleafProperties {
+
+        	private static final Charset DEFAULT_ENCODING = Charset.forName("UTF-8");
+
+        	private static final MimeType DEFAULT_CONTENT_TYPE = MimeType.valueOf("text/html");
+
+        	public static final String DEFAULT_PREFIX = "classpath:/templates/";
+
+        	public static final String DEFAULT_SUFFIX = ".html";
+
+        只要我们把HTML页面放在classpath:/templates/，thymeleaf就能自动渲染；
+
+        使用：
+
+        ①、导入thymeleaf的名称空间
+
+           <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+        ②、使用thymeleaf语法；
+
+            <!DOCTYPE html>
+            <html lang="en" xmlns:th="http://www.thymeleaf.org">
+            <head>
+                <meta charset="UTF-8">
+                <title>Title</title>
+            </head>
+            <body>
+                <h1>成功！</h1>
+                <!--th:text 将div里面的文本内容设置为 -->
+                <div th:text="${hello}">这是显示欢迎信息</div>
+            </body>
+            </html>
+
+
+        总结：
+
+            用th:text不会解析html，在页面中显示相应的样式
+            用th:utext会解析html， 在页面中显示相应的样式
+
+3.SpringMVC自动配置原理
+
+
+
+
+
+
+

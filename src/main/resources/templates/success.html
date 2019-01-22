@@ -1,12 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>欢迎</title>
 </head>
 <body>
 
+<div id="div01" class="myDiv" th:id="${hello}" th:class="${hello}" th:text="${hello}">这是显示欢迎信息</div>
 
 <h3>。。。。。欢迎。。。。。</h3>
+<hr/>
+<hr/>
+
+<div th:text="${hello}"></div>
+<div th:utext="${hello}"></div>
+<hr/>
+<hr/>
+
+
+
+<h4 th:text="${user}" th:each="user:${users}"></h4>
+<hr/>
+<h4>
+    <span th:each="user:${users}">[[${user}]]</span>
+</h4>
+<hr/>
+<hr/>
+
+
+
 </body>
 </html>
